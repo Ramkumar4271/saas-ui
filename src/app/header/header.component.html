@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="javascript:void(0)" routerLink="home">SaaS</a>
+    <span class="divider" *ngIf="loggedUser.length > 0">|</span>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navb">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" *ngIf="loggedUser.length > 0">
+                Welcome {{loggedUser}}
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <!-- <button class="btn btn-info my-2 my-sm-0 checkout-button" type="button" routerLink="checkout">
+                <i class="bi bi-cart2 checkout-icon" *ngIf="loggedUser.length > 0"></i>
+            </button> -->
+            <button class="btn btn-info my-2 my-sm-0" type="button" *ngIf="loggedUser.length == 0" routerLink="signin">Sign In</button>
+            <button class="btn btn-info my-2 my-sm-0" type="button" *ngIf="loggedUser.length == 0" routerLink="signup">Sign Up</button>            
+            <button class="btn btn-info my-2 my-sm-0" type="button" *ngIf="loggedUser.length > 0" (click)="onLogout()">Logout</button>
+        </form>
+    </div>
+</nav>
+
+<div>
+    <button type="button" #model class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="display: none;">
+      Open modal
+    </button>
+    <div class="modal" id="myModal" style="margin-top: 10rem;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-info">
+            <h4 class="modal-title">{{popupTitle}}</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            {{popupMessage}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+  </div>

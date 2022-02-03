@@ -1,0 +1,38 @@
+.container {
+    margin-top: 2rem;
+    .contents {
+        .head-title {
+            max-width: 45rem;
+            margin: auto;
+            margin-bottom: 2rem;
+        }
+        @media only screen and (max-width: 991px) {
+            .head-title {            
+                font-size: 1rem;
+            }            
+        }
+    }
+    .table-responsive{
+        max-width: 50rem;
+        margin: auto;
+        .table {
+            background-color: #fff;
+            border-radius: 5px;
+            thead{
+                background-color: lightslategray;
+                color: #fff;
+                .actions {
+                    text-align: center;                    
+                }
+            }
+            tbody {
+                .actions-items {
+                    text-align: center;
+                }
+            }
+            tfoot {
+                font-weight: bold;
+            }
+        }
+    }    
+}

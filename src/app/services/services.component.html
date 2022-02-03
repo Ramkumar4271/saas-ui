@@ -1,0 +1,27 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="javascript:void(0)" routerLink="/home">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Services</li>
+    </ol>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="contents text-center">
+                <h2 class="head-title text-secondary">
+                    Our Services
+                </h2>
+                <div class="card-columns" *ngIf="services != []">
+                    <div class="card border-light" *ngFor="let service of services, let i = index">
+                        <div class="card-body">
+                            <i class="bi text-info display-3" [class]="icons[i]"></i>
+                            <h5 class="card-title text-uppercase">{{service.name}}</h5>
+                            <p class="card-text text-secondary">{{service.description}}</p>
+                            <a href="javascript:void(0)" class="btn btn-sm btn-outline-info" *ngIf="isLogged" (click)="onPricing(service)">Purshase</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

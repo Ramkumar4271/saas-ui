@@ -1,0 +1,22 @@
+.container {
+    margin-top: 2rem;
+    .contents {
+        .head-title {
+            max-width: 45rem;
+            margin: auto;
+            margin-bottom: 2rem;
+        }
+        @media only screen and (max-width: 991px) {
+            .head-title {            
+                font-size: 1rem;
+            }            
+        }
+        .card-body {
+            text-align: center;
+            .card-text {
+                text-align: left;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }    
+}

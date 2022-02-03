@@ -1,0 +1,46 @@
+<div class="container">    
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="contents text-center">
+                <h2 class="head-title text-secondary">
+                    Sign In
+                </h2>
+            </div>
+            <form #loginForm="ngForm" (ngSubmit)="onLogin()">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error.length > 0">
+                    <strong>Error: </strong>{{error}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" autocomplete="off" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Enter email" 
+                        name="email" ngModel #email="ngModel" required email
+                        [ngClass]="{'is-valid': (email.valid && (email.touched || email.dirty)),
+                                    'is-invalid': (email.invalid && (email.touched || email.dirty))}">
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback" *ngIf="email.invalid && (email.touched || email.dirty) && isValid('email','required')">
+                        Enter email!
+                    </div>
+                    <div class="invalid-feedback" *ngIf="email.invalid && (email.touched || email.dirty) && isValid('email','email')">
+                        Enter valid Email!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1"
+                        placeholder="Password" name="password" ngModel #password="ngModel" required
+                        [ngClass]="{'is-valid': (password.valid && (password.touched || password.dirty)),'is-invalid': (password.invalid && (password.touched || password.dirty))}" appAutoFocus>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Enter Password!</div>
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="btn btn-info" [disabled]="loginForm.invalid">Submit</button>
+                    <a href="#"class="text-info" onclick="return false" (click)="onSignup()">Signup</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

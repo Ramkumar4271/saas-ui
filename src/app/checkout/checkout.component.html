@@ -1,0 +1,54 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="javascript:void(0)" routerLink="/home">Home</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0)" routerLink="/services">Services</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0)" routerLink="/pricing">Pricing</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+    </ol>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="contents text-center">
+                <h2 class="head-title text-secondary">
+                    Your Orders
+                </h2>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Service</th>
+                            <th>Package</th>
+                            <th class="actions">Delete</th>
+                            <th class="pricing">Price / Month</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of orders, let i = index">
+                            <td>{{order.order_id}}</td>
+                            <td>{{order.service_name}}</td>
+                            <td>{{order.pricing_name}}</td>
+                            <td class="actions-items">
+                                <a href="#" onClick="return false">
+                                    <i class="bi bi-trash-fill" style="color: red;" (click)="deleteOrder(order.order_id)"></i>
+                                </a>
+                            </td>
+                            <td>$ {{order.price}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" style="text-align: center;">Total</td>
+                            <td colspan="1">$ {{total}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="buttons" style="float: right;" (click)="placeOrders()">
+                    <button type="button" class="btn btn-info">Place your orders</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

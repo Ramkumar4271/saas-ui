@@ -1,0 +1,24 @@
+.navbar {
+    .divider {
+        display: none;
+    }
+    @media only screen and (min-width: 991px) {
+        .divider {
+            display: inline;
+            color: #fff;
+            padding: 0 1rem;
+            opacity: 0.5;
+        }
+    } 
+    .navbar-collapse {
+        .nav-item {
+            color: #fff;
+        }
+    }
+    .checkout-button {
+        padding-top: 0;
+        .checkout-icon {
+            font-size: 20px;
+        }
+    }   
+}

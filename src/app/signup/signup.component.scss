@@ -1,0 +1,25 @@
+.container {
+    margin-top: 2rem;
+    .contents {
+        .head-title {
+            max-width: 45rem;
+            margin: auto;
+            margin-bottom: 2rem;
+        }
+        @media only screen and (max-width: 991px) {
+            .head-title {            
+                font-size: 1rem;
+            }            
+        }
+    }
+    form {
+        max-width: 40rem;
+        margin: auto;
+        .buttons {
+            margin-top: 1rem;
+            a {
+                margin-left: 2rem;
+            }
+        }
+    }
+}

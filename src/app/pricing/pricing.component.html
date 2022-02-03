@@ -1,0 +1,28 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="javascript:void(0)" routerLink="/home">Home</a></li>        
+        <li class="breadcrumb-item"><a href="javascript:void(0)" routerLink="/services">Services</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Pricing</li>
+    </ol>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="contents text-center">
+                <h2 class="head-title text-secondary">
+                    SaaS Packages
+                </h2>
+                <div class="card-deck" *ngIf="pricings != []">
+                    <div class="card border-info" *ngFor="let pricing of pricings">
+                        <div class="card-body">
+                            <h6 class="card-title text-uppercase text-secondary">{{pricing.name}}</h6>
+                            <h3>$ {{pricing.price}} / Month</h3>
+                            <p class="card-text text-secondary" *ngFor="let package of pricing.packages">{{package.name}}</p>
+                            <a href="javascript:void(0)" class="btn btn-info" (click)="onPurshase(pricing)" *ngIf="isServiceAdded">Purshase Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

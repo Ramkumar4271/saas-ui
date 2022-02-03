@@ -1,0 +1,84 @@
+<div class="container">    
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="contents text-center">
+                <h2 class="head-title text-secondary">
+                    Sign Up
+                </h2>
+            </div>
+            <form [formGroup]="signupform" (ngSubmit)="onSignup()">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error.length > 0">
+                    <strong>Error: </strong>{{error}}
+                </div>
+                <div class="form-group">
+                    <label for="fullname">Name:</label>
+                    <input type="text" autocomplete="off" class="form-control" id="fullname" placeholder="Enter fullname"
+                        name="fullname" formControlName="fullname"
+                        [ngClass]="{'is-valid': (signupform.get('fullname')?.valid && (signupform.get('fullname')?.touched || signupform.get('fullname')?.dirty)),
+                                    'is-invalid': (signupform.get('fullname')?.invalid && (signupform.get('fullname')?.touched || signupform.get('fullname')?.dirty))}">
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback"
+                        *ngIf="signupform.get('fullname')?.invalid && (signupform.get('fullname')?.touched || signupform.get('fullname')?.dirty) && isValid('fullname','required')">
+                        Enter name!</div>
+                    <div class="invalid-feedback"
+                        *ngIf="signupform.get('fullname')?.invalid && (signupform.get('fullname')?.touched || signupform.get('fullname')?.dirty) && isValid('fullname','minlength')">
+                        Minimum 3 Characters required!</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" autocomplete="off" id="email" aria-describedby="emailHelp"
+                        placeholder="Enter email" name="email" formControlName="email"
+                        [ngClass]="{'is-valid': (signupform.get('email')?.valid && (signupform.get('email')?.touched || signupform.get('email')?.dirty)),
+                            'is-invalid': (signupform.get('email')?.invalid && (signupform.get('email')?.touched || signupform.get('email')?.dirty))}">
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback"
+                        *ngIf="signupform.get('email')?.invalid && (signupform.get('email')?.touched || signupform.get('email')?.dirty) && isValid('email','required')">
+                        Enter email!</div>
+                    <div class="invalid-feedback"
+                        *ngIf="signupform.get('email')?.invalid && (signupform.get('email')?.touched || signupform.get('email')?.dirty) && isValid('email','email')">
+                        Please enter valid email!</div>
+                </div>
+                <div class="form-row" formGroupName="pwd">
+                    <div class="form-group col-md-6">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter Password"
+                            name="password" formControlName="password"
+                            [ngClass]="{'is-valid': (signupform.get('pwd.password')?.valid && (signupform.get('pwd.password')?.touched || signupform.get('pwd.password')?.dirty)),
+                                        'is-invalid': (signupform.get('pwd.password')?.invalid && (signupform.get('pwd.password')?.touched || signupform.get('pwd.password')?.dirty))}">
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback"
+                            *ngIf="signupform.get('pwd.password')?.invalid && (signupform.get('pwd.password')?.touched || signupform.get('pwd.password')?.dirty) && isValid('pwd.password','required')">
+                            Enter password!</div>
+                        <div class="invalid-feedback"
+                            *ngIf="signupform.get('pwd.password')?.invalid && (signupform.get('pwd.password')?.touched || signupform.get('pwd.password')?.dirty) && isValid('pwd.password','minlength')">
+                            Minimum 5 Characters required</div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword"
+                            placeholder="Retype Password" name="confirmPassword"
+                            formControlName="confirmPassword"
+                            [ngClass]="{'is-valid': (signupform.get('pwd.confirmPassword')?.valid && !isValid('pwd','confirmPwd') && (signupform.get('pwd.confirmPassword')?.touched || signupform.get('pwd.confirmPassword')?.dirty)),
+                                        'is-invalid': ((signupform.get('pwd.confirmPassword')?.invalid || isValid('pwd','confirmPwd')) && (signupform.get('pwd.confirmPassword')?.touched || signupform.get('pwd.confirmPassword')?.dirty))}">
+                        <div class="valid-feedback"
+                            *ngIf="signupform.get('pwd.confirmPassword')?.valid && (signupform.get('pwd.confirmPassword')?.touched || signupform.get('pwd.confirmPassword')?.dirty) && !isValid('pwd','confirmPwd')">
+                            Valid.</div>
+                        <div class="invalid-feedback"
+                            *ngIf="signupform.get('pwd.confirmPassword')?.invalid && (signupform.get('pwd.confirmPassword')?.touched || signupform.get('pwd.confirmPassword')?.dirty) && isValid('pwd.confirmPassword','required')">
+                            Enter confirm password!</div>
+                        <div class="invalid-feedback"
+                            *ngIf="signupform.get('pwd.confirmPassword')?.invalid && (signupform.get('pwd.confirmPassword')?.touched || signupform.get('pwd.confirmPassword')?.dirty) && isValid('pwd.confirmPassword','minlength')">
+                            Minimum 5 Characters required</div>
+                        <div class="invalid-feedback"
+                            *ngIf="signupform.get('pwd.confirmPassword')?.valid && (signupform.get('pwd.confirmPassword')?.touched || signupform.get('pwd.confirmPassword')?.dirty) && isValid('pwd','confirmPwd')">
+                            Passwords are not matched!</div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="btn btn-info" [disabled]="signupform.invalid">Submit</button>
+                    <a href="#" class="text-info" onclick="return false" (click)="onSignin()">Sign In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
