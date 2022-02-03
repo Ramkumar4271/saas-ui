@@ -14,7 +14,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Run the color-assignment in the local on Node.js server
 
-1. Pull the latest code from GitHub "https://github.com/Ramkumar4271/color-assignment.git"
+1. Pull the latest code from GitHub "https://github.com/Ramkumar4271/saas-ui.git"
 2. Run the command "npm install" to get the dependencies/3rd party libraries
 3. Run the command the below commands requires for using angular material and responsive. 
 4. npm install jquery@3 --save
